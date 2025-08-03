@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Chama Tracker</title>
+  <link rel="stylesheet" href="main.css" />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f4f4f4;
+    }
+
+    .form-container {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 100%;
+      max-width: 400px;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Register</h2>
+    <form id="register-form">
+      <input type="text" placeholder="Full Name" required />
+      <input type="email" placeholder="Email" required />
+      <input type="password" placeholder="Password" required />
+
+      <input type="text" placeholder="Chama Name" required />
+      <input type="text" placeholder="Chama Code / Invite Code" required />
+
+      <select required>
+        <option value="">Role in Chama</option>
+        <option value="admin">Admin (Creator)</option>
+        <option value="member">Member</option>
+      </select>
+
+      <input type="date" placeholder="Date Joined" required />
+      <select required>
+        <option value="">Contribution Cycle</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
+
+      <button type="submit" id="register-btn">Register</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('register-btn')?.addEventListener('click', function(e) {
+      e.preventDefault(); // stop real submission
+      window.location.href = 'dashboard.html'; // simulate success by redirecting
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chama Tracker</title>
+  <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <h2>Chama Tracker</h2>
+      <nav>
+        <ul>
+          <li class="active" data-target="members">Members</li>
+          <li data-target="loans">Loans</li>
+          <li data-target="contributions">Contributions</li>
+          <li data-target="tracker">Tracker</li>
+          <li data-target="settings">Settings</li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main">
+      <!-- Members Section -->
+      <section id="members" class="section active-section">
+        <h2>Add Member</h2>
+        <form id="member-form">
+          <div class="form-group">
+            <label for="member-name">Name:</label>
+            <input type="text" id="member-name" required />
+          </div>
+          <button type="submit">Add Member</button>
+        </form>
+        <h3>Member List</h3>
+        <ul id="member-list"></ul>
+      </section>
+
+      <!-- Loans Section -->
+      <section id="loans" class="section">
+        <h2>Add Loan</h2>
+        <form id="loan-form">
+          <input type="text" id="loan-member" placeholder="Member Name" required />
+          <input type="number" id="loan-amount" placeholder="Amount" required />
+          <button type="submit">Add Loan</button>
+        </form>
+        <h3>Loans List</h3>
+        <ul id="loan-list"></ul>
+      </section>
+
+      <!-- Contributions Section -->
+      <section id="contributions" class="section">
+        <h2>Add Contribution</h2>
+        <form id="contribution-form">
+          <input type="text" id="contributor-name" placeholder="Member Name" required />
+          <input type="number" id="contribution-amount" placeholder="Amount" required />
+          <input type="date" id="contribution-date" required />
+          <button type="submit">Add Contribution</button>
+        </form>
+        <h3>Contribution Records</h3>
+        <ul id="contribution-list"></ul>
+      </section>
+
+      <!-- Tracker Section -->
+      <section id="tracker" class="section">
+        <h2>Dashboard</h2>
+        <div class="tracker-cards">
+          <div class="card">
+            <h3>Total Members</h3>
+            <p id="total-members">0</p>
+          </div>
+          <div class="card">
+            <h3>Total Contributions</h3>
+            <p id="total-contributions">Ksh 0</p>
+          </div>
+          <div class="card">
+            <h3>Total Loans</h3>
+            <p id="total-loans">Ksh 0</p>
+          </div>
+        </div>
+        <h3>Recent Activity</h3>
+        <table class="activity-table">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Member</th>
+              <th>Action</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody id="activity-log"></tbody>
+        </table>
+      </section>
+
+      <!-- Settings Section -->
+      <section id="settings" class="section">
+        <h2>⚙️ Settings</h2>
+
+        <details open>
+          <summary>🔐 Account Settings</summary>
+          <div class="settings-group">
+            <label>Name: <input type="text" placeholder="Enter name" /></label>
+            <label>Email: <input type="email" placeholder="Enter email" /></label>
+            <label>Password: <input type="password" placeholder="Change password" /></label>
+          </div>
+        </details>
+
+        <details>
+          <summary>👥 Group Settings</summary>
+          <div class="settings-group">
+            <label>Group Name: <input type="text" placeholder="Group name" /></label>
+            <label>Contribution Amount: <input type="number" placeholder="KES 1000" /></label>
+            <label>Frequency:
+              <select>
+                <option>Weekly</option>
+                <option>Monthly</option>
+              </select>
+            </label>
+          </div>
+        </details>
+
+        <details>
+          <summary>🔔 Notifications</summary>
+          <div class="settings-group">
+            <label><input type="checkbox" /> SMS Alerts</label>
+            <label><input type="checkbox" /> Email Alerts</label>
+            <label><input type="checkbox" /> Missed Contribution Reminder</label>
+          </div>
+        </details>
+
+        <details>
+          <summary>⚙️ App Preferences</summary>
+          <div class="settings-group">
+            <label>Theme:
+              <select>
+                <option>Light</option>
+                <option>Dark</option>
+              </select>
+            </label>
+            <label>Language:
+              <select>
+                <option>English</option>
+                <option>Swahili</option>
+              </select>
+            </label>
+          </div>
+        </details>
+
+        <details>
+          <summary>❌ Danger Zone</summary>
+          <div class="settings-group danger">
+            <button style="background: #f44336; color: white;">Delete Account</button>
+            <button style="background: #f44336; color: white;">Leave Group</button>
+          </div>
+        </details>
+
+        <div style="margin-top: 1rem;">
+          <button id="save-settings-btn">💾 Save All Settings</button>
+          <p id="settings-message"></p>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
